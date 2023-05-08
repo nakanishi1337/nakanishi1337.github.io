@@ -46,3 +46,32 @@
   background-color: transparent;
   font-size: 1.5rem;
 }
+
+.fas_sns_icontop{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 1.5rem;
+}
+
+.fas_sns_icontop li{
+	list-style: none;
+	text-align: center;
+}
+
+.fas_sns_icontop li a{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 0.8em;
+	line-height: 1.4;
+	color: #333;
+}
+
+.fas_sns_icontop li a i{
+	display: block;
+	font-size: 3em;
+	line-height: 1;
+	margin-bottom: 2px;
+}
