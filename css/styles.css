@@ -14,7 +14,7 @@
   object-fit: cover; /* 画像を維持し、コンテナに合わせてクロップ */
 }
 
-.img-container i {
+/* .img-container i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,7 +23,22 @@
   font-size: 4rem;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+} */
+
+.img-container i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明の灰色背景 */
+  padding: 10px; /* 適切な余白を追加 */
+  border-radius: 50%; /* 丸みを帯びた形状に */
+  color: white;
+  font-size: 4rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
+
 
 .img-container:hover i {
   cursor: pointer;
