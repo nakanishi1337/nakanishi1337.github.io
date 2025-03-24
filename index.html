@@ -441,9 +441,14 @@
 
         <footer class="footer">
             <div class="container">
-                <p>&copy; 2023 Hiroki Nakanishi</p>
+                <p>&copy; <span id="year"></span> Hiroki Nakanishi</p>
             </div>
         </footer>
+        
+        <script>
+            // 現在の年を取得して表示
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
                     
 
 
