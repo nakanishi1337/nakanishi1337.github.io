@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hiroki Nakanishi</title>
+    <meta name="description" content="Software Engineer in telecommunications.">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Hiroki Nakanishi">
+    <meta property="og:description" content="Software Engineer in telecommunications.">
+    <meta property="og:url" content="https://nakanishi1337.github.io/">
+    <meta property="og:image" content="https://nakanishi1337.github.io/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="./favicon.ico" sizes="32x32">
+    <link rel="icon" href="./favicon-192.png" type="image/png" sizes="192x192">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f2f1ee;
+            --card: #f7f4ec;
+            --emboss: 0.12;
+            --press-light: rgba(255, 255, 255, 0.9);
+            --press-dark: rgba(0, 0, 0, 0.18);
+            --sheen: rgba(255, 255, 255, 0.6);
+            --desk-light: rgba(255, 255, 255, 0.45);
+            --desk-dark: rgba(0, 0, 0, 0.035);
+            --fg: #1c1917;
+            --muted: #78716c;
+            --line: #e7e5e4;
+            --accent: #2563eb;
+            --shadow: 0 0.5px 0 rgba(28, 25, 23, 0.08), 0 1px 1px rgba(28, 25, 23, 0.10), 0 4px 6px -2px rgba(28, 25, 23, 0.12), 0 18px 28px -10px rgba(28, 25, 23, 0.18);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f0e0d;
+                --card: #22201d;
+                --emboss: 0.3;
+                --press-light: rgba(255, 255, 255, 0.07);
+                --press-dark: rgba(0, 0, 0, 0.6);
+                --sheen: rgba(255, 255, 255, 0.03);
+                --desk-light: rgba(255, 255, 255, 0.04);
+                --desk-dark: rgba(0, 0, 0, 0.3);
+                --fg: #f5f5f4;
+                --muted: #a8a29e;
+                --line: #3a3634;
+                --accent: #60a5fa;
+                --shadow: 0 1px 1px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.5), 0 18px 28px -10px rgba(0, 0, 0, 0.8);
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            min-height: 100svh; /* スマホのアドレスバー分ではみ出さないように */
+            background: var(--bg);
+            background-image: radial-gradient(ellipse at 50% 40%, var(--desk-light), var(--desk-dark));
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* 真ん中より少し上に見えるよう、下側の余白を多めにとる */
+            padding: 40px 16px calc(40px + 10svh);
+        }
+
+        /* 名刺本体（91mm × 55mm の比率） */
+        .card {
+            width: 100%;
+            max-width: 440px;
+            aspect-ratio: 91 / 55;
+            background:
+                linear-gradient(160deg, var(--sheen), transparent 50%, rgba(0, 0, 0, 0.03)),
+                var(--card);
+            border-radius: 3px;
+            box-shadow: var(--shadow), inset 0 1px 0 var(--press-light), inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+            padding: 28px 32px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        /* エンボス紙の凹凸: ノイズに斜めから光を当てて陰影をつける */
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='e' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' seed='3' stitchTiles='stitch' result='t'/><feDiffuseLighting in='t' surfaceScale='1.3' diffuseConstant='1' lighting-color='white'><feDistantLight azimuth='225' elevation='52'/></feDiffuseLighting></filter><rect width='100%' height='100%' filter='url(%23e)'/></svg>");
+            background-size: 300px 300px;
+            mix-blend-mode: multiply;
+            opacity: var(--emboss);
+        }
+        @media (prefers-color-scheme: dark) {
+            /* 白い文字に凹凸が乗ると汚れて見えるので、文字を質感の上に出す */
+            .card > * { position: relative; z-index: 1; }
+        }
+        .card h1 {
+            font-size: 2.3rem;
+            line-height: 1.15;
+            letter-spacing: 0.005em;
+            margin: 0;
+            text-shadow: 0 1px 0 var(--press-light), 0 -0.5px 0 var(--press-dark);
+        }
+        .card .bio {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+        .card .contact {
+            border-top: 1px solid var(--line);
+            box-shadow: inset 0 1px 0 var(--press-light);
+            padding-top: 14px;
+        }
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 24px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .links a {
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .links a:hover { color: var(--accent); }
+        .links i, .mail i { margin-right: 8px; width: 1em; text-align: center; }
+        .card .bio, .links a, .mail { text-shadow: 0 1px 0 var(--press-light); }
+        .mail { margin: 6px 0 0; font-size: 1rem; color: var(--fg); }
+
+        /* 仕事の記事（名刺の下に並べる） */
+        .articles-section {
+            width: 100%;
+            max-width: 440px;
+            margin-top: 48px;
+        }
+        h2 {
+            font-size: 0.8rem;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+        }
+        .articles { list-style: none; padding: 0; margin: 0; }
+        .articles li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+        .articles a { color: var(--fg); text-decoration: none; }
+        .articles a:hover { color: var(--accent); }
+        .articles .meta { display: block; color: var(--muted); font-size: 0.8rem; }
+
+        /* スマホでは名刺の比率を外して中身に合わせる */
+        @media (max-width: 520px) {
+            .card {
+                aspect-ratio: auto;
+                padding: 26px 24px 22px;
+                gap: 32px;
+            }
+            .card h1 { font-size: 1.6rem; }
+            .card .bio { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <div>
+            <h1>Hiroki Nakanishi</h1>
+            <p class="bio">Software Engineer in telecommunications.</p>
+        </div>
+
+        <div class="contact">
+            <ul class="links">
+                <li><a href="https://github.com/nakanishi1337" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub</a></li>
+                <li><a href="https://zenn.dev/nakanishi1337" target="_blank" rel="noopener"><i class="fas fa-book"></i>Zenn</a></li>
+                <li><a href="https://note.com/hirokinakanishi" target="_blank" rel="noopener"><i class="fas fa-pen-nib"></i>note</a></li>
+            </ul>
+            <p class="mail" id="mail" hidden><i class="fas fa-envelope"></i><span></span></p>
+        </div>
+    </main>
+
+    <!-- 仕事の記事が公開されたら、下のコメントを外して <li> を足す（新しいものを上に）
+    <section class="articles-section">
+        <h2>Articles</h2>
+        <ul class="articles">
+            <li>
+                <a href="記事のURL" target="_blank" rel="noopener">記事タイトル</a>
+                <span class="meta">媒体名 · 2026/xx</span>
+            </li>
+        </ul>
+    </section>
+    -->
+
+    <script>
+        // スパム対策: アドレスをHTMLに直接書かずに組み立てる
+        const mail = document.getElementById("mail");
+        const addr = ["nakanishi1337", "gmail.com"].join("@");
+        mail.querySelector("span").textContent = addr;
+        mail.hidden = false;
+    </script>
+</body>
+</html>
